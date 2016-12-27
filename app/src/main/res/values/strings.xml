@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MVP-Practise</string>
+    <string name="action_settings">Settings</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+</resources>
