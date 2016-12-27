@@ -11,25 +11,22 @@ import com.example.brain.mvp_practise.R;
 import com.example.brain.mvp_practise.auth.login.LoginContract;
 import com.example.brain.mvp_practise.auth.login.LoginFragment;
 import com.example.brain.mvp_practise.auth.login.LoginPresenter;
+import com.example.brain.mvp_practise.auth.register.RegisterContract;
+import com.example.brain.mvp_practise.auth.register.RegisterFragment;
+import com.example.brain.mvp_practise.auth.register.RegisterPresenter;
 import com.example.brain.mvp_practise.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AuthRequest {
     ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        requestLogin();
         setSupportActionBar(binding.toolbar);
 
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer);
-        if (fragment == null ||!(fragment instanceof LoginFragment)) {
-            fragment = new LoginFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainActivityContainer, fragment)
-                    .commit();
-        }
-        new LoginPresenter((LoginContract.View) fragment);
+
     }
 
 
@@ -50,4 +47,38 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        if(getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer)instanceof RegisterFragment){
+            requestLogin();
+        }else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void requestLogin() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer);
+        if (fragment == null || !(fragment instanceof LoginFragment)) {
+            fragment = new LoginFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainActivityContainer, fragment)
+                    .commit();
+        }
+        new LoginPresenter((LoginContract.View) fragment);
+    }
+
+    @Override
+    public void requestSignUp() {
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer);
+        if (fragment == null || !(fragment instanceof RegisterFragment)) {
+            fragment = new RegisterFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainActivityContainer, fragment)
+                    .commit();
+        }
+        new RegisterPresenter((RegisterContract.View) fragment);
+
+    }
+
 }

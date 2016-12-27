@@ -2,6 +2,7 @@ package com.example.brain.mvp_practise.auth.login;
 
 import com.example.brain.mvp_practise.BasePresenter;
 import com.example.brain.mvp_practise.BaseView;
+import com.example.brain.mvp_practise.auth.AuthRequest;
 
 /**
  * Created by brain on 12/26/16.
@@ -17,6 +18,8 @@ import com.example.brain.mvp_practise.BaseView;
 
     interface Presenter extends BasePresenter{
         void doLogin(String username, String password);
-
+        void openLogin();
+        void openRegister();
+        void setAuthRequest(AuthRequest authRequest);
     }
 }

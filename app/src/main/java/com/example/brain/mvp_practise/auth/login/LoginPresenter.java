@@ -2,6 +2,8 @@ package com.example.brain.mvp_practise.auth.login;
 
 import android.os.AsyncTask;
 
+import com.example.brain.mvp_practise.auth.AuthRequest;
+
 import java.util.Random;
 
 /**
@@ -10,6 +12,7 @@ import java.util.Random;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
+    private AuthRequest authRequest;
 
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
@@ -43,6 +46,21 @@ public class LoginPresenter implements LoginContract.Presenter {
             }
         }.execute();
 
+    }
+
+    @Override
+    public void openRegister() {
+        authRequest.requestSignUp();
+    }
+
+    @Override
+    public void openLogin() {
+        authRequest.requestLogin();
+    }
+
+    @Override
+    public void setAuthRequest(AuthRequest authRequest) {
+        this.authRequest = authRequest;
     }
 
     @Override
