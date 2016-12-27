@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements AuthRequest {
     }
 
     @Override
-    public void requestSignUp() {
+    public void requestRegister() {
 
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer);
         if (fragment == null || !(fragment instanceof RegisterFragment)) {
