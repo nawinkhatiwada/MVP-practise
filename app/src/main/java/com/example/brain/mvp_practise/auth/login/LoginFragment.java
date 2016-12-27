@@ -1,6 +1,5 @@
 package com.example.brain.mvp_practise.auth.login;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -53,14 +52,13 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
-
-
     }
 
     @Override
     public void showLoginSuccess() {
         progressDialog.dismiss();
         Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_LONG).show();
+        loginPresenter.openDashBoard();
 
     }
 
@@ -68,9 +66,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     public void showLoginError() {
         progressDialog.dismiss();
         Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
-
     }
-
 
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {

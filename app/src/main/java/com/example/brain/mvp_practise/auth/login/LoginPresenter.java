@@ -59,6 +59,11 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
+    public void openDashBoard() {
+        authRequest.requestDashboard();
+    }
+
+    @Override
     public void setAuthRequest(AuthRequest authRequest) {
         this.authRequest = authRequest;
     }

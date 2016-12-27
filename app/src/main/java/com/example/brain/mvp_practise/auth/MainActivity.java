@@ -1,5 +1,6 @@
 package com.example.brain.mvp_practise.auth;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.example.brain.mvp_practise.auth.login.LoginPresenter;
 import com.example.brain.mvp_practise.auth.register.RegisterContract;
 import com.example.brain.mvp_practise.auth.register.RegisterFragment;
 import com.example.brain.mvp_practise.auth.register.RegisterPresenter;
+import com.example.brain.mvp_practise.dashboard.DashboardActivity;
 import com.example.brain.mvp_practise.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements AuthRequest {
@@ -25,10 +27,7 @@ public class MainActivity extends AppCompatActivity implements AuthRequest {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         requestLogin();
         setSupportActionBar(binding.toolbar);
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,15 +43,14 @@ public class MainActivity extends AppCompatActivity implements AuthRequest {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer)instanceof RegisterFragment){
+        if (getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer) instanceof RegisterFragment) {
             requestLogin();
-        }else {
+        } else {
             super.onBackPressed();
         }
     }
@@ -78,7 +76,12 @@ public class MainActivity extends AppCompatActivity implements AuthRequest {
                     .commit();
         }
         new RegisterPresenter((RegisterContract.View) fragment);
-
     }
 
+    @Override
+    public void requestDashboard() {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
