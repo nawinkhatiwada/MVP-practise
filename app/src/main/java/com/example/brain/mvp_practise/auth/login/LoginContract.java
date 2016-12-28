@@ -19,7 +19,7 @@ import com.example.brain.mvp_practise.auth.AuthRequest;
     interface Presenter extends BasePresenter{
         void doLogin(String username, String password);
         void openLogin();
-        void openDashBoard();
+        void openMain();
         void openRegister();
         void setAuthRequest(AuthRequest authRequest);
     }

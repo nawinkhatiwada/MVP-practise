@@ -58,7 +58,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     public void showLoginSuccess() {
         progressDialog.dismiss();
         Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_LONG).show();
-        loginPresenter.openDashBoard();
+        loginPresenter.openMain();
 
     }
 
