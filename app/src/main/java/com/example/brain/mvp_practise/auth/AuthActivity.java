@@ -15,16 +15,16 @@ import com.example.brain.mvp_practise.auth.login.LoginPresenter;
 import com.example.brain.mvp_practise.auth.register.RegisterContract;
 import com.example.brain.mvp_practise.auth.register.RegisterFragment;
 import com.example.brain.mvp_practise.auth.register.RegisterPresenter;
-import com.example.brain.mvp_practise.dashboard.DashboardActivity;
-import com.example.brain.mvp_practise.databinding.ActivityMainBinding;
+import com.example.brain.mvp_practise.main.MainActivity;
+import com.example.brain.mvp_practise.databinding.ActivityAuthBinding;
 
-public class MainActivity extends AppCompatActivity implements AuthRequest {
-    ActivityMainBinding binding;
+public class AuthActivity extends AppCompatActivity implements AuthRequest {
+    ActivityAuthBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_auth);
         requestLogin();
         setSupportActionBar(binding.toolbar);
     }
@@ -46,14 +46,6 @@ public class MainActivity extends AppCompatActivity implements AuthRequest {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer) instanceof RegisterFragment) {
-            requestLogin();
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     @Override
     public void requestLogin() {
@@ -80,8 +72,17 @@ public class MainActivity extends AppCompatActivity implements AuthRequest {
 
     @Override
     public void requestDashboard() {
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().findFragmentById(R.id.mainActivityContainer) instanceof RegisterFragment) {
+            requestLogin();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
