@@ -71,7 +71,7 @@ public class AuthActivity extends AppCompatActivity implements AuthRequest {
     }
 
     @Override
-    public void requestDashboard() {
+    public void requestMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

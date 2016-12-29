@@ -13,12 +13,14 @@ import com.example.brain.mvp_practise.auth.AuthRequest;
 public interface RegisterContract {
 
     interface View extends BaseView<Presenter> {
+        void showRegisterProgress();
         void showRegisterSuccess();
         void showRegisterError();
     }
 
     interface Presenter extends BasePresenter {
         void doRegister(String name, String email, String password);
+        void openMain();
         void setAuthRequest(AuthRequest authRequest);
     }
 }

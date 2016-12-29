@@ -7,5 +7,5 @@ package com.example.brain.mvp_practise.auth;
 public interface AuthRequest {
     void requestLogin();
     void requestRegister();
-    void requestDashboard();
+    void requestMain();
 }
