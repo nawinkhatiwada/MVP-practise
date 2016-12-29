@@ -1,7 +1,5 @@
 package com.example.brain.mvp_practise.auth.register;
 
-import android.content.Context;
-
 import com.example.brain.mvp_practise.BasePresenter;
 import com.example.brain.mvp_practise.BaseView;
 import com.example.brain.mvp_practise.auth.AuthRequest;
