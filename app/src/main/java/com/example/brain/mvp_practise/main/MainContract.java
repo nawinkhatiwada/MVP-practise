@@ -10,10 +10,15 @@ import com.example.brain.mvp_practise.BaseView;
 public interface MainContract {
 
     interface View extends BaseView<Presenter>{
-
+        void showDashBoard();
+        void showMessage();
+        void showFriend();
+        void showDiscussion();
     }
     interface Presenter extends BasePresenter{
-        void initDrawer();
-
+        void requestDashBoard();
+        void requestMessage();
+        void requestFriend();
+        void requestDiscussion();
     }
 }
