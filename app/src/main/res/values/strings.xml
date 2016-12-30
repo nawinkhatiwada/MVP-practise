@@ -6,4 +6,6 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="name">Name</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="message">Message</string>
 </resources>

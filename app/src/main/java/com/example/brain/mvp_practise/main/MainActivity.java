@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MainRequest {
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
                         drawerLayout.closeDrawers();
-                        switch (menuItem.getItemId()){
+                        switch (menuItem.getItemId()) {
                             case R.id.nav_dashboard:
                                 requestDashBoard();
                                 break;
@@ -69,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements MainRequest {
                     }
                 });
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -85,24 +83,24 @@ public class MainActivity extends AppCompatActivity implements MainRequest {
 
     @Override
     public void requestDashBoard() {
-
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainContainer);
         if (fragment == null || !(fragment instanceof DashboardFragment)) {
             fragment = new DashboardFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, fragment)
                     .commit();
+            content.tvTitle.setText(getResources().getString(R.string.dashboard));
         }
         new DashboardPresenter((DashboardContract.View) fragment);
     }
 
     @Override
     public void requestMessage() {
-
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainContainer);
         if (fragment == null || !(fragment instanceof MessageFragment)) {
             fragment = new MessageFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, fragment)
                     .commit();
+            content.tvTitle.setText(getResources().getString(R.string.message));
         }
         new MessagePresenter((MessageContract.View) fragment);
     }
