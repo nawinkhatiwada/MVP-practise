@@ -26,11 +26,6 @@ public class DashboardPresenter implements DashboardContract.Presenter {
     }
 
     @Override
-    public void initDashboard() {
-//        mainRequest.requestDashBoard();
-    }
-
-    @Override
     public void setMainRequest(MainRequest mainRequest) {
         this.mainRequest = mainRequest;
     }

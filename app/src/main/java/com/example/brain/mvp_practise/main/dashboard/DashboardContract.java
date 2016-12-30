@@ -16,7 +16,6 @@ public interface DashboardContract {
 
     interface Presenter extends BasePresenter{
         void selectTab();
-        void initDashboard();
         void setMainRequest(MainRequest mainRequest);
     }
 }
