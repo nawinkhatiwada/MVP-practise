@@ -34,6 +34,7 @@ public class DashboardFragment extends Fragment implements DashboardContract.Vie
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, container, false);
         if (binding.viewpager != null) {
             setupViewPager(binding.viewpager);
+
         }
         binding.tabs.setupWithViewPager(binding.viewpager);
         return binding.getRoot();
