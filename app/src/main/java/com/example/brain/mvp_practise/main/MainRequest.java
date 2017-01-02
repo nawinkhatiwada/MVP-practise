@@ -5,8 +5,8 @@ package com.example.brain.mvp_practise.main;
  */
 
 public interface MainRequest {
-    void requestDashBoard();
-    void requestMessage();
-    void requestFriend();
-    void requestDiscussion();
+    int typeDashboard = 1;
+    int typeMessage = 2;
+
+    int getType();
 }

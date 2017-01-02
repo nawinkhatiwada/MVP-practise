@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.brain.mvp_practise.MVPBus;
 import com.example.brain.mvp_practise.R;
 import com.example.brain.mvp_practise.auth.AuthRequest;
 import com.example.brain.mvp_practise.databinding.FragmentDashboardBinding;
@@ -45,7 +46,6 @@ public class DashboardFragment extends Fragment implements DashboardContract.Vie
         adapter.addFragment(new CategoryOneFragment(), "Category 1");
         adapter.addFragment(new CategoryOneFragment(), "Category 2");
         viewpager.setAdapter(adapter);
-
     }
 
     @Override
